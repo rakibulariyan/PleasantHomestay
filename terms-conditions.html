@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions - Pleasant HomeStay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Your existing CSS from the main file */
+        :root {
+            --primary: #2c5530;
+            --secondary: #b68d40;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1e3a22;
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Legal Page Styles */
+        .legal-hero {
+            background: linear-gradient(135deg, var(--primary), #1e3a22);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .legal-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .legal-content {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .legal-section {
+            margin-bottom: 50px;
+        }
+        
+        .legal-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+        
+        .legal-section h3 {
+            color: var(--dark);
+            margin: 25px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        .legal-section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .legal-section ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .legal-section li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .legal-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+        <a href="index.html" class="logo">Pleasant <span>HomeStay</span></a>
+
+        <div class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="rooms.html">Rooms</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    </header>
+
+    <!-- Legal Hero Section -->
+    <section class="legal-hero">
+        <div class="container">
+            <h1>Terms & Conditions</h1>
+            <p>Last updated: December 2023</p>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="legal-section">
+                <h2>1. Booking and Reservations</h2>
+                <p>By making a reservation at Pleasant HomeStay, you agree to the following terms:</p>
+                
+                <h3>Reservation Requirements</h3>
+                <ul>
+                    <li>Valid government-issued photo ID is required at check-in</li>
+                    <li>Guest must be at least 18 years old to make a reservation</li>
+                    <li>Check-in time: 2:00 PM | Check-out time: 11:00 AM</li>
+                    <li>Early check-in and late check-out subject to availability</li>
+                </ul>
+                
+                <h3>Payment Terms</h3>
+                <ul>
+                    <li>Advance payment may be required for certain bookings</li>
+                    <li>All major credit cards and debit cards accepted</li>
+                    <li>Additional charges for extra guests or services</li>
+                    <li>Security deposit may be required at check-in</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>2. Guest Responsibilities</h2>
+                <p>Guests are expected to adhere to the following during their stay:</p>
+                <ul>
+                    <li>Respect other guests and maintain peaceful environment</li>
+                    <li>No smoking in rooms or common areas</li>
+                    <li>No illegal activities on the premises</li>
+                    <li>Report any damages or issues immediately</li>
+                    <li>Follow all safety and security guidelines</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>3. Cancellation Policy</h2>
+                <p>Our cancellation policy is designed to be fair to both guests and our business:</p>
+                <ul>
+                    <li>Free cancellation up to 48 hours before check-in</li>
+                    <li>50% charge for cancellations within 24-48 hours</li>
+                    <li>No refund for no-shows or same-day cancellations</li>
+                    <li>Special events and peak season may have different policies</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>4. Liability</h2>
+                <p>Pleasant HomeStay is not liable for:</p>
+                <ul>
+                    <li>Loss or damage to personal belongings</li>
+                    <li>Personal injury unless caused by our negligence</li>
+                    <li>Changes in travel plans or natural disasters</li>
+                    <li>Third-party services or recommendations</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>5. Property Rules</h2>
+                <p>To ensure a pleasant stay for all guests, please follow these rules:</p>
+                <ul>
+                    <li>Quiet hours from 10:00 PM to 7:00 AM</li>
+                    <li>No parties or events without prior permission</li>
+                    <li>Maximum occupancy limits must be respected</li>
+                    <li>Common areas are shared spaces - please keep them clean</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>6. Changes to Terms</h2>
+                <p>We reserve the right to modify these terms at any time. Continued use of our services constitutes acceptance of the modified terms.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Pleasant HomeStay</h3>
+                    <p>Your perfect getaway for relaxation and rejuvenation amidst nature.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#rooms">Rooms</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Lakhmi Nagar Path, Hatigaon, Guwahati, Assam - 781006</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@pleasanthomestay.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Pleasant HomeStay. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

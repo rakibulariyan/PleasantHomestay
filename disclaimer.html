@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disclaimer - Pleasant HomeStay</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Your existing CSS from the main file */
+        :root {
+            --primary: #2c5530;
+            --secondary: #b68d40;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1e3a22;
+            transform: translateY(-2px);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Legal Page Styles */
+        .legal-hero {
+            background: linear-gradient(135deg, var(--primary), #1e3a22);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+        }
+        
+        .legal-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .legal-content {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .legal-section {
+            margin-bottom: 50px;
+        }
+        
+        .legal-section h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+        }
+        
+        .legal-section h3 {
+            color: var(--dark);
+            margin: 25px 0 15px;
+            font-size: 1.3rem;
+        }
+        
+        .legal-section p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+        
+        .legal-section ul {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        .legal-section li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .notice-box {
+            background-color: var(--light);
+            border-left: 4px solid var(--secondary);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links li a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .legal-hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Pleasant <span>HomeStay</span></a>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#rooms">Rooms</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Legal Hero Section -->
+    <section class="legal-hero">
+        <div class="container">
+            <h1>Disclaimer</h1>
+            <p>Last updated: December 2023</p>
+        </div>
+    </section>
+
+    <!-- Legal Content -->
+    <section class="legal-content">
+        <div class="container">
+            <div class="legal-section">
+                <h2>General Disclaimer</h2>
+                <p>The information contained on the Pleasant HomeStay website is for general information purposes only. While we endeavor to keep the information up to date and correct, we make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the website or the information, products, services, or related graphics contained on the website for any purpose.</p>
+                
+                <div class="notice-box">
+                    <p><strong>Important:</strong> Any reliance you place on such information is therefore strictly at your own risk.</p>
+                </div>
+            </div>
+
+            <div class="legal-section">
+                <h2>Website Content</h2>
+                <p>All content on this website, including but not limited to text, graphics, images, and other material, is for informational purposes only and does not constitute professional advice.</p>
+                
+                <h3>Accuracy of Information</h3>
+                <ul>
+                    <li>Room rates and availability are subject to change without notice</li>
+                    <li>Photographs are for representation purposes only</li>
+                    <li>Amenities and services may vary or be temporarily unavailable</li>
+                    <li>We reserve the right to modify or discontinue any service</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Limitation of Liability</h2>
+                <p>In no event will Pleasant HomeStay be liable for any loss or damage including without limitation, indirect or consequential loss or damage, or any loss or damage whatsoever arising from loss of data or profits arising out of, or in connection with, the use of this website.</p>
+                
+                <h3>Specific Exclusions</h3>
+                <ul>
+                    <li>Technical issues beyond our control</li>
+                    <li>Third-party websites linked from our site</li>
+                    <li>User-generated content or reviews</li>
+                    <li>Force majeure events</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>External Links</h2>
+                <p>Through this website, you are able to link to other websites which are not under the control of Pleasant HomeStay. We have no control over the nature, content, and availability of those sites. The inclusion of any links does not necessarily imply a recommendation or endorse the views expressed within them.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Property Information</h2>
+                <p>While we strive to provide accurate descriptions of our property and services, please note:</p>
+                <ul>
+                    <li>Room layouts may vary from photographs</li>
+                    <li>Views and surroundings may change</li>
+                    <li>Construction or maintenance work may occur nearby</li>
+                    <li>Local conditions and regulations may affect your stay</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Health and Safety</h2>
+                <p>Guests are responsible for their own safety and well-being during their stay. We recommend:</p>
+                <ul>
+                    <li>Following all posted safety guidelines</li>
+                    <li>Securing personal belongings</li>
+                    <li>Being aware of your surroundings</li>
+                    <li>Reporting any concerns immediately to staff</li>
+                </ul>
+            </div>
+
+            <div class="legal-section">
+                <h2>Changes to Disclaimer</h2>
+                <p>We may update this disclaimer from time to time. We will notify you of any changes by posting the new disclaimer on this page. You are advised to review this disclaimer periodically for any changes.</p>
+            </div>
+
+            <div class="legal-section">
+                <h2>Contact Information</h2>
+                <p>If you have any questions about this disclaimer, please contact us:</p>
+                <ul>
+                    <li>Email: info@pleasanthomestay.com</li>
+                    <li>Phone: +91 98765 43210</li>
+                    <li>Address: Lakhmi Nagar Path, Hatigaon, Guwahati, Assam - 781006</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Pleasant HomeStay</h3>
+                    <p>Your perfect getaway for relaxation and rejuvenation amidst nature.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About Us</a></li>
+                        <li><a href="index.html#rooms">Rooms</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Lakhmi Nagar Path, Hatigaon, Guwahati, Assam - 781006</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                        <li><i class="fas fa-envelope"></i> info@pleasanthomestay.com</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul class="footer-links">
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
+                        <li><a href="disclaimer.html">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Pleasant HomeStay. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('nav ul').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
