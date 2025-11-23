@@ -876,12 +876,19 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2024 Pleasant HomeStay. All Rights Reserved.</p>
+                <p>
+                    &copy; <span id="year"></span> Pleasant HomeStay. All Rights Reserved. <br>
+                    Designed & Developed by 
+                    <a href="https://barakwebsoft.com" target="_blank" rel="noopener noreferrer">
+                        Barak WebSoft
+                    </a>.
+                </p>
             </div>
         </div>
     </footer>
-
     <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
         // Mobile menu toggle
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('nav ul').classList.toggle('active');
