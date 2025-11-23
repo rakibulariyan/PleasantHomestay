@@ -571,29 +571,29 @@
         </div>
     </div>
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Pleasant HomeStay</h3>
-                    <p>Your perfect getaway for relaxation and rejuvenation amidst nature in Guwahati.</p>
+                    <p>A cozy and peaceful stay in Hatigaon, Guwahati, ideal for families, Couples, solo travelers.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Pleasant-Homestay-Guwahati-100065071669061"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/pleasant_homestay_"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-tripadvisor"></i></a>
                     </div>
                 </div>
                 
                 <div class="footer-column">
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="https://pleasanthomestay.in/">Home</a></li>
+                        <li><a href="about-us.html">About Us</a></li>
                         <li><a href="rooms.html">Rooms</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="career.html">Careers</a></li>
                     </ul>
                 </div>
                 
@@ -618,13 +618,21 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2024 Pleasant HomeStay. All Rights Reserved.</p>
+                <p>
+                    &copy; <span id="year"></span> Pleasant HomeStay. All Rights Reserved. <br>
+                    Designed & Developed by 
+                    <a href="https://barakwebsoft.com" target="_blank" rel="noopener noreferrer">
+                        Barak WebSoft
+                    </a>.
+                </p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Gallery data - Update these paths with your actual image filenames
+        // Dynamic Year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
         const galleryImages = [
             // Rooms Category
             {
