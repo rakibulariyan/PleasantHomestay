@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
 
+Disallow: /404.html
+Disallow: /README.md
+Disallow: /LICENSE
+
 Sitemap: https://pleasanthomestay.in/sitemap.xml
-Host: pleasanthomestay.in
+Host: PleasantHomestay.in
