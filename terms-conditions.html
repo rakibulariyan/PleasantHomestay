@@ -422,7 +422,7 @@
                 <p>
                     &copy; <span id="year"></span> Pleasant HomeStay. All Rights Reserved. <br>
                     Designed & Developed by 
-                    <a href="https://barakwebsoft.com" target="_blank" rel="noopener noreferrer">
+                    <a href="https://axomtimes.in" target="_blank" rel="dofollow" style="color: var(--secondary);">
                         Barak WebSoft
                     </a>.
                 </p>
@@ -430,20 +430,31 @@
         </div>
     </footer>
 
-    <script>
-+        // Dynamic year
-+        document.getElementById("year").textContent = new Date().getFullYear();
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
+<script>
+    // Dynamic year
+    const yearEl = document.getElementById('year');
+    if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+    }
+
+    // Mobile menu toggle
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navUl = document.querySelector('nav ul');
+
+    if (mobileBtn && navUl) {
+        mobileBtn.addEventListener('click', function() {
+            navUl.classList.toggle('active');
         });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
-            });
+    }
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('nav ul li a').forEach(link => {
+        link.addEventListener('click', function() {
+            if (navUl) {
+                navUl.classList.remove('active');
+            }
         });
-    </script>
+    });
+</script>
 </body>
 </html>
