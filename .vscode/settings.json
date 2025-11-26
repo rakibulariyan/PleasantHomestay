@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+
+  "files.autoSave": "onFocusChange",
+
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+
+  "workbench.tree.indent": 16,
+
+  "liveServer.settings.port": 5500,
+  "liveServer.settings.wait": 200,
+
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": true,
+
+  "eslint.validate": [
+    "javascript",
+    "html"
+  ]
+}
