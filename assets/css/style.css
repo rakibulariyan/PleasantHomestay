@@ -2058,3 +2058,15 @@ footer .container {
     margin-bottom: 10px;
   }
 }
+
+.footer-logo-bottom {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.footer-logo-bottom img {
+  margin-right: 40px;
+  width: 80px; /* adjust size if needed */
+  height: auto;
+  opacity: 0.9; /* optional: looks sleek */
+}
