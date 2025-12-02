@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQs | Pleasant HomeStay - Frequently Asked Questions</title>
+    <meta
+      name="description"
+      content="Find answers to common questions about Pleasant HomeStay booking, check-in, facilities, payments, and policies in Guwahati."
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* FAQ Page Specific Styles */
+      .faq-hero {
+        background: linear-gradient(
+            rgba(44, 85, 48, 0.9),
+            rgba(44, 85, 48, 0.9)
+          ),
+          url("assets/images/hompage-image/home-page-hero.webp");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 150px 0 80px;
+        text-align: center;
+        margin-top: 70px;
+      }
+
+      .faq-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+      }
+
+      .faq-hero .page-description {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 700px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+
+      .faq-section {
+        padding: 80px 0;
+      }
+
+      .faq-category {
+        margin-bottom: 50px;
+      }
+
+      .faq-category h2 {
+        color: var(--primary);
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+        padding-bottom: 15px;
+        border-bottom: 2px solid rgba(44, 85, 48, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .faq-category h2 i {
+        color: var(--secondary);
+      }
+
+      .faq-item {
+        background: var(--white);
+        border-radius: 10px;
+        margin-bottom: 15px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .faq-item.active {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-question {
+        padding: 20px 25px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #fff;
+        transition: var(--transition);
+      }
+
+      .faq-item.active .faq-question {
+        background: rgba(44, 85, 48, 0.05);
+      }
+
+      .faq-question h3 {
+        color: var(--primary);
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin: 0;
+        flex: 1;
+        line-height: 1.4;
+      }
+
+      .faq-question .faq-toggle {
+        color: var(--secondary);
+        font-size: 1.2rem;
+        transition: var(--transition);
+        margin-left: 15px;
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(180deg);
+      }
+
+      .faq-answer {
+        padding: 0 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 0 25px 20px;
+        max-height: 500px;
+      }
+
+      .faq-answer p {
+        color: var(--gray);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .faq-answer ul {
+        margin-left: 20px;
+        margin-top: 10px;
+      }
+
+      .faq-answer li {
+        color: var(--gray);
+        margin-bottom: 8px;
+      }
+
+      .search-box {
+        max-width: 600px;
+        margin: 0 auto 50px;
+        position: relative;
+      }
+
+      .search-box input {
+        width: 100%;
+        padding: 15px 50px 15px 20px;
+        border: 2px solid rgba(44, 85, 48, 0.2);
+        border-radius: 50px;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .search-box input:focus {
+        outline: none;
+        border-color: var(--secondary);
+        box-shadow: 0 5px 15px rgba(182, 141, 64, 0.1);
+      }
+
+      .search-box button {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        color: var(--primary);
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      .no-results {
+        text-align: center;
+        padding: 40px;
+        color: var(--gray);
+        display: none;
+      }
+
+      .no-results.show {
+        display: block;
+      }
+
+      .quick-links {
+        background: #f9f9f9;
+        padding: 30px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+      }
+
+      .quick-links h3 {
+        color: var(--primary);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .quick-links-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .quick-link {
+        background: var(--white);
+        padding: 10px 20px;
+        border-radius: 50px;
+        color: var(--primary);
+        font-weight: 500;
+        text-decoration: none;
+        transition: var(--transition);
+        border: 2px solid transparent;
+      }
+
+      .quick-link:hover {
+        border-color: var(--secondary);
+        background: rgba(182, 141, 64, 0.05);
+      }
+
+      .contact-promo {
+        background: linear-gradient(135deg, var(--primary), #1e3a22);
+        color: white;
+        padding: 40px;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 50px;
+      }
+
+      .contact-promo h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
+
+      .contact-promo p {
+        opacity: 0.9;
+        margin-bottom: 20px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* Responsive Styles */
+      @media (max-width: 768px) {
+        .faq-hero {
+          padding: 120px 0 60px;
+          margin-top: 60px;
+        }
+
+        .faq-hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .faq-question {
+          padding: 15px 20px;
+        }
+
+        .faq-question h3 {
+          font-size: 1.1rem;
+        }
+
+        .faq-answer {
+          padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+          padding: 0 20px 15px;
+        }
+
+        .quick-links-list {
+          justify-content: center;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .faq-hero h1 {
+          font-size: 1.8rem;
+        }
+
+        .faq-question {
+          padding: 15px;
+        }
+
+        .faq-question h3 {
+          font-size: 1rem;
+        }
+
+        .quick-link {
+          padding: 8px 15px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header will be included via include.js -->
+    <div data-include="components/header.html"></div>
+
+    <!-- Hero Section -->
+    <section class="faq-hero">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p class="page-description">
+          Find answers to common questions about booking, facilities, policies,
+          and everything you need to know for your stay at Pleasant HomeStay.
+        </p>
+        <div class="breadcrumb">
+          <a href="https://pleasanthomestay.in">Home</a>
+          <span>/</span>
+          <span class="current-page">FAQs</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <!-- Search Box -->
+        <div class="search-box">
+          <input
+            type="text"
+            id="faqSearch"
+            placeholder="Search for questions or topics..."
+          />
+          <button id="searchButton"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="quick-links">
+          <h3>Quick Links to Common Questions:</h3>
+          <div class="quick-links-list">
+            <a href="#booking" class="quick-link">Booking Process</a>
+            <a href="#checkin" class="quick-link">Check-in/Out</a>
+            <a href="#payment" class="quick-link">Payments</a>
+            <a href="#facilities" class="quick-link">Facilities</a>
+            <a href="#cancellation" class="quick-link">Cancellation</a>
+            <a href="#couples" class="quick-link">Couple-Friendly</a>
+            <a href="#breakfast" class="quick-link">Breakfast</a>
+            <a href="#parking" class="quick-link">Parking</a>
+          </div>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">
+          <h3><i class="fas fa-search"></i> No results found</h3>
+          <p>
+            Try searching with different keywords or browse through the
+            categories below.
+          </p>
+        </div>
+
+        <!-- Booking FAQs -->
+        <div class="faq-category" id="booking">
+          <h2><i class="fas fa-calendar-check"></i> Booking & Reservations</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How can I book a room at Pleasant HomeStay?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>You can book a room through multiple ways:</p>
+                <ul>
+                  <li>Directly through our website contact form</li>
+                  <li>Calling us at +91 91016 65539</li>
+                  <li>WhatsApp at +91 86388 51516</li>
+                  <li>Email at pleasanthomestay24@gmail.com</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What documents are required for booking?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  For Indian guests: Original government photo ID (Aadhar Card,
+                  Driving License, Voter ID, or Passport) is mandatory for all
+                  guests. For foreign guests: Passport and valid visa are
+                  required.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Is advance payment required for booking?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we require 50% advance payment to confirm your booking.
+                  The remaining amount can be paid at check-in. For one-night
+                  stays, full payment in advance is required.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What is the minimum and maximum stay duration?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Minimum stay is 2 hours (for short stays) and maximum stay can
+                  be extended up to 30 days. For longer stays, please contact us
+                  for special rates and arrangements.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Check-in/Check-out FAQs -->
+        <div class="faq-category" id="checkin">
+          <h2><i class="fas fa-door-open"></i> Check-in & Check-out</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What are the check-in and check-out timings?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Standard check-in time is 12:00 PM and check-out time is 11:00
+                  AM. However, we offer flexible timings based on room
+                  availability. Early check-in and late check-out can be
+                  arranged with prior notice (additional charges may apply).
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I check-in early or check-out late?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, early check-in and late check-out are available subject
+                  to room availability. Charges for early check-in (before 12
+                  PM) and late check-out (after 11 AM):
+                </p>
+                <ul>
+                  <li>50% of room rate for up to 6 hours extension</li>
+                  <li>Full day charge for more than 6 hours extension</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you provide luggage storage after check-out?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we provide complimentary luggage storage for up to 6
+                  hours after check-out. For longer storage, a small fee may
+                  apply.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Payment FAQs -->
+        <div class="faq-category" id="payment">
+          <h2><i class="fas fa-credit-card"></i> Payments & Pricing</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What payment methods do you accept?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>We accept multiple payment methods:</p>
+                <ul>
+                  <li>Cash (Indian Rupees)</li>
+                  <li>UPI (Google Pay, PhonePe, PayTM)</li>
+                  <li>Bank Transfer (NEFT/IMPS)</li>
+                  <li>Credit/Debit Cards (subject to availability)</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Are there any additional charges or taxes?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  All prices shown include GST. No hidden charges. However,
+                  additional services like birthday cakes, decorations,
+                  photography, or extra meals are charged separately as per
+                  actuals.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you offer discounts for long stays?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we offer special discounts for stays longer than 7 days:
+                </p>
+                <ul>
+                  <li>7-14 days: 10% discount</li>
+                  <li>15-30 days: 15% discount</li>
+                  <li>Monthly stays: 20% discount</li>
+                  <li>Contact us for custom packages for longer stays</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Facilities FAQs -->
+        <div class="faq-category" id="facilities">
+          <h2><i class="fas fa-concierge-bell"></i> Facilities & Services</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What is included in the complimentary breakfast?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>Our complimentary breakfast includes:</p>
+                <ul>
+                  <li>Tea/Coffee</li>
+                  <li>Bread toast with butter/jam</li>
+                  <li>Eggs (boiled/scrambled/omelette)</li>
+                  <li>Fresh fruits (seasonal)</li>
+                  <li>Juice or milk</li>
+                </ul>
+                <p>
+                  Special dietary requirements can be accommodated with prior
+                  notice.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you have WiFi and is it free?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we provide free high-speed WiFi throughout the property.
+                  The WiFi password is provided at check-in. There are no data
+                  limits or additional charges.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item" id="parking">
+              <div class="faq-question">
+                <h3>Is parking available and is it free?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we have secure parking space available for our guests at
+                  no additional cost. The parking area is within the premises
+                  and under CCTV surveillance.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you have laundry service?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We provide laundry service through a trusted local provider.
+                  Charges are as per actuals and collection/delivery takes 24
+                  hours. Price list is available at the front desk.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Couple-Friendly FAQs -->
+        <div class="faq-category" id="couples">
+          <h2><i class="fas fa-heart"></i> Couple-Friendly Policy</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Is Pleasant HomeStay couple-friendly?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, we are a couple-friendly homestay. We welcome both
+                  married and unmarried couples. We maintain complete privacy
+                  and discretion for all our guests.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What documents are required for couples?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Both guests need to provide valid government photo ID (Aadhar,
+                  Driving License, Passport, or Voter ID). We follow standard
+                  hotel check-in procedures for all guests.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Do you have any age restrictions for couples?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  All guests must be 18 years or older. We reserve the right to
+                  verify age through valid ID proof at check-in.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cancellation Policy -->
+        <div class="faq-category" id="cancellation">
+          <h2><i class="fas fa-times-circle"></i> Cancellation Policy</h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>What is your cancellation policy?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>Our cancellation policy is as follows:</p>
+                <ul>
+                  <li>Cancellation 48+ hours before check-in: Full refund</li>
+                  <li>Cancellation 24-48 hours before check-in: 50% refund</li>
+                  <li>Cancellation less than 24 hours: No refund</li>
+                  <li>No-show: No refund</li>
+                </ul>
+                <p>
+                  Refunds are processed within 5-7 working days to the original
+                  payment method.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I modify my booking dates?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes, you can modify your booking dates subject to
+                  availability. Please contact us at least 24 hours before your
+                  original check-in date. Date changes may affect the room rate
+                  depending on season and availability.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Location & Transportation -->
+        <div class="faq-category">
+          <h2>
+            <i class="fas fa-map-marker-alt"></i> Location & Transportation
+          </h2>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How far is Pleasant HomeStay from Guwahati Airport?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  We are approximately 25 km from Lokpriya Gopinath Bordoloi
+                  International Airport (GAU). Travel time is about 45-60
+                  minutes depending on traffic.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Is public transportation easily available?</h3>
+                <span class="faq-toggle"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </div>
+              <div class="faq-answer">
+                <p>Yes, we are well-connected by public transport:</p>
+                <ul>
+                  <li>Auto-rickshaws available within 2 minutes walk</li>
+                  <li>City buses pass nearby</li>
+                  <li>Taxi services (Uber/Ola) available</li>
+                  <li>We can help arrange local transport on request</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Promo -->
+        <div class="contact-promo">
+          <h3>Still have questions?</h3>
+          <p>
+            Can't find the answer you're looking for? Please reach out to our
+            friendly team. We're here to help!
+          </p>
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            <a href="tel:+919101665539" class="btn" style="margin-left: 15px"
+              >Call Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer will be included via include.js -->
+    <div data-include="components/footer.html"></div>
+
+    <script src="assets/js/include.js"></script>
+    <script>
+      // FAQ Accordion Functionality
+      document.addEventListener("DOMContentLoaded", function () {
+        const faqItems = document.querySelectorAll(".faq-item");
+        const faqSearch = document.getElementById("faqSearch");
+        const searchButton = document.getElementById("searchButton");
+        const noResults = document.getElementById("noResults");
+        const allFaqs = document.querySelectorAll(".faq-item");
+
+        // Initialize first FAQ open
+        if (faqItems.length > 0) {
+          faqItems[0].classList.add("active");
+        }
+
+        // FAQ toggle functionality
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          question.addEventListener("click", () => {
+            // Close all other FAQs
+            faqItems.forEach((otherItem) => {
+              if (
+                otherItem !== item &&
+                otherItem.classList.contains("active")
+              ) {
+                otherItem.classList.remove("active");
+              }
+            });
+
+            // Toggle current FAQ
+            item.classList.toggle("active");
+          });
+        });
+
+        // Search functionality
+        function searchFAQs() {
+          const searchTerm = faqSearch.value.toLowerCase().trim();
+          let foundResults = false;
+
+          if (searchTerm === "") {
+            // Show all FAQs
+            allFaqs.forEach((faq) => {
+              faq.style.display = "block";
+              // Also show all categories
+              const category = faq.closest(".faq-category");
+              if (category) {
+                category.style.display = "block";
+              }
+            });
+            noResults.classList.remove("show");
+            return;
+          }
+
+          allFaqs.forEach((faq) => {
+            const question = faq
+              .querySelector(".faq-question h3")
+              .textContent.toLowerCase();
+            const answer = faq
+              .querySelector(".faq-answer")
+              .textContent.toLowerCase();
+
+            if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+              faq.style.display = "block";
+              foundResults = true;
+
+              // Open the FAQ
+              faq.classList.add("active");
+
+              // Show the parent category
+              const category = faq.closest(".faq-category");
+              if (category) {
+                category.style.display = "block";
+              }
+            } else {
+              faq.style.display = "none";
+
+              // Check if the entire category should be hidden
+              const category = faq.closest(".faq-category");
+              if (category) {
+                const visibleFaqsInCategory = category.querySelectorAll(
+                  '.faq-item[style="display: block"]'
+                );
+                if (visibleFaqsInCategory.length === 0) {
+                  category.style.display = "none";
+                }
+              }
+            }
+          });
+
+          // Show/hide no results message
+          if (foundResults) {
+            noResults.classList.remove("show");
+          } else {
+            noResults.classList.add("show");
+
+            // Hide all categories
+            document.querySelectorAll(".faq-category").forEach((category) => {
+              category.style.display = "none";
+            });
+          }
+        }
+
+        // Search on button click
+        searchButton.addEventListener("click", searchFAQs);
+
+        // Search on enter key
+        faqSearch.addEventListener("keyup", (e) => {
+          if (e.key === "Enter") {
+            searchFAQs();
+          }
+        });
+
+        // Quick link scrolling
+        document.querySelectorAll(".quick-link").forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              // Open all FAQs in the category
+              const categoryFaqs = targetElement.querySelectorAll(".faq-item");
+              categoryFaqs.forEach((faq) => {
+                faq.classList.add("active");
+              });
+
+              // Scroll to category
+              window.scrollTo({
+                top: targetElement.offsetTop - 100,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+
+        // Set current year in footer
+        const yearElement = document.getElementById("year");
+        if (yearElement) {
+          yearElement.textContent = new Date().getFullYear();
+        }
+      });
+    </script>
+  </body>
+</html>
