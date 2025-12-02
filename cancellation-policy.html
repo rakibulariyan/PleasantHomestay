@@ -1,213 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cancellation Policy - Pleasant HomeStay</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">Pleasant <span>HomeStay</span></a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="index.html#about">About</a></li>
-                    <li><a href="index.html#rooms">Rooms</a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div data-include="components/header.html"></div>
 
-    <!-- Legal Hero Section -->
-    <section class="legal-hero">
-        <div class="container">
-            <h1>Cancellation Policy</h1>
-            <p>Last updated: December 2023</p>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Disclaimer</h1>
+        <p class="last-updated">
+          Last updated: <span class="current-date"></span>
+        </p>
+        <div class="breadcrumb">
+          <a href="https://pleasanthomestay.in/">Home</a>
+          <span>/</span>
+          <span class="current-page">Disclaimer</span>
         </div>
+      </div>
     </section>
 
     <!-- Legal Content -->
     <section class="legal-content">
-        <div class="container">
-            <div class="legal-section">
-                <h2>Standard Cancellation Policy</h2>
-                <p>We understand that plans can change. Our cancellation policy is designed to be fair to both our guests and our business.</p>
-                
-                <table class="policy-table">
-                    <thead>
-                        <tr>
-                            <th>Cancellation Time</th>
-                            <th>Refund Amount</th>
-                            <th>Conditions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>More than 7 days before check-in</td>
-                            <td>100% refund</td>
-                            <td>Full refund of advance payment</td>
-                        </tr>
-                        <tr>
-                            <td>48 hours to 7 days before check-in</td>
-                            <td>50% refund</td>
-                            <td>Half of the advance payment refunded</td>
-                        </tr>
-                        <tr>
-                            <td>24 to 48 hours before check-in</td>
-                            <td>25% refund</td>
-                            <td>Quarter of advance payment refunded</td>
-                        </tr>
-                        <tr>
-                            <td>Less than 24 hours or no-show</td>
-                            <td>No refund</td>
-                            <td>Full advance payment retained</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <div class="container">
+        <div class="legal-section">
+          <h2>Standard Cancellation Policy</h2>
+          <p>
+            We understand that plans can change. Our cancellation policy is
+            designed to be fair to both our guests and our business.
+          </p>
 
-            <div class="legal-section">
-                <h2>Special Circumstances</h2>
-                
-                <h3>Peak Season & Holidays</h3>
-                <p>During peak season (December-January, major festivals), the following policies apply:</p>
-                <ul>
-                    <li>Free cancellation up to 14 days before check-in</li>
-                    <li>50% refund for cancellations 7-14 days before check-in</li>
-                    <li>No refund for cancellations within 7 days of check-in</li>
-                </ul>
-                
-                <h3>Long Stays (7+ nights)</h3>
-                <ul>
-                    <li>Free cancellation up to 30 days before check-in</li>
-                    <li>50% refund for cancellations 15-30 days before check-in</li>
-                    <li>25% refund for cancellations 7-14 days before check-in</li>
-                    <li>No refund for cancellations within 7 days</li>
-                </ul>
-            </div>
-
-            <div class="legal-section">
-                <h2>Modification Policy</h2>
-                <p>We try to be flexible with changes to your reservation:</p>
-                <ul>
-                    <li>Date changes subject to availability</li>
-                    <li>No fee for modifications made more than 48 hours in advance</li>
-                    <li>Modifications within 48 hours treated as cancellation</li>
-                    <li>Rate differences apply for room upgrades</li>
-                </ul>
-            </div>
-
-            <div class="legal-section">
-                <h2>Force Majeure</h2>
-                <p>In case of unforeseen circumstances beyond our control:</p>
-                <ul>
-                    <li>Natural disasters or extreme weather conditions</li>
-                    <li>Government travel restrictions</li>
-                    <li>Unexpected property closures</li>
-                </ul>
-                <p>In such cases, we offer:</p>
-                <ul>
-                    <li>Full refund or credit for future stay</li>
-                    <li>Flexible rescheduling options</li>
-                    <li>Case-by-case consideration</li>
-                </ul>
-            </div>
-
-            <div class="legal-section">
-                <h2>How to Cancel</h2>
-                <p>To cancel your reservation:</p>
-                <ul>
-                    <li>Call us at +91 91016 65539</li>
-                    <li>Email us at pleasanthomestay24@gmail.com</li>
-                    <li>Provide your booking reference number</li>
-                    <li>Allow 5-7 business days for refund processing</li>
-                </ul>
-            </div>
+          <table class="policy-table">
+            <thead>
+              <tr>
+                <th>Cancellation Time</th>
+                <th>Refund Amount</th>
+                <th>Conditions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>More than 7 days before check-in</td>
+                <td>100% refund</td>
+                <td>Full refund of advance payment</td>
+              </tr>
+              <tr>
+                <td>48 hours to 7 days before check-in</td>
+                <td>50% refund</td>
+                <td>Half of the advance payment refunded</td>
+              </tr>
+              <tr>
+                <td>24 to 48 hours before check-in</td>
+                <td>25% refund</td>
+                <td>Quarter of advance payment refunded</td>
+              </tr>
+              <tr>
+                <td>Less than 24 hours or no-show</td>
+                <td>No refund</td>
+                <td>Full advance payment retained</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+
+        <div class="legal-section">
+          <h2>Special Circumstances</h2>
+
+          <h3>Peak Season & Holidays</h3>
+          <p>
+            During peak season (December-January, major festivals), the
+            following policies apply:
+          </p>
+          <ul>
+            <li>Free cancellation up to 14 days before check-in</li>
+            <li>50% refund for cancellations 7-14 days before check-in</li>
+            <li>No refund for cancellations within 7 days of check-in</li>
+          </ul>
+
+          <h3>Long Stays (7+ nights)</h3>
+          <ul>
+            <li>Free cancellation up to 30 days before check-in</li>
+            <li>50% refund for cancellations 15-30 days before check-in</li>
+            <li>25% refund for cancellations 7-14 days before check-in</li>
+            <li>No refund for cancellations within 7 days</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Modification Policy</h2>
+          <p>We try to be flexible with changes to your reservation:</p>
+          <ul>
+            <li>Date changes subject to availability</li>
+            <li>No fee for modifications made more than 48 hours in advance</li>
+            <li>Modifications within 48 hours treated as cancellation</li>
+            <li>Rate differences apply for room upgrades</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>Force Majeure</h2>
+          <p>In case of unforeseen circumstances beyond our control:</p>
+          <ul>
+            <li>Natural disasters or extreme weather conditions</li>
+            <li>Government travel restrictions</li>
+            <li>Unexpected property closures</li>
+          </ul>
+          <p>In such cases, we offer:</p>
+          <ul>
+            <li>Full refund or credit for future stay</li>
+            <li>Flexible rescheduling options</li>
+            <li>Case-by-case consideration</li>
+          </ul>
+        </div>
+
+        <div class="legal-section">
+          <h2>How to Cancel</h2>
+          <p>To cancel your reservation:</p>
+          <ul>
+            <li>Call us at +91 91016 65539</li>
+            <li>Email us at pleasanthomestay24@gmail.com</li>
+            <li>Provide your booking reference number</li>
+            <li>Allow 5-7 business days for refund processing</li>
+          </ul>
+        </div>
+      </div>
     </section>
 
-<!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Pleasant HomeStay</h3>
-                    <p>A cozy and peaceful stay in Hatigaon, Guwahati, ideal for families, Couples, solo travelers.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/p/Pleasant-Homestay-Guwahati-100065071669061"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/pleasant_homestay_"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://pleasanthomestay.in/">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="rooms.html">Rooms</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="career.html">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Lakhmi Nagar Path, Hatigaon, Guwahati, Assam - 781006</li>
-                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                        <li><i class="fas fa-envelope"></i> info@pleasanthomestay.com</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>
-                    &copy; <span id="year"></span> Pleasant HomeStay. All Rights Reserved. <br>
-                    Designed & Developed by 
-                    <a href="https://barakwebsoft.com" target="_blank" rel="noopener noreferrer">
-                        Barak WebSoft
-                    </a>.
-                </p>
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Dynamic year
-        document.getElementById("year").textContent = new Date().getFullYear();
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
-            });
-        });
-    </script>
-</body>
+    <!-- Footer will be included via include.js -->
+    <div data-include="components/footer.html"></div>
+
+    <script src="assets/js/include.js"></script>
+  </body>
 </html>
