@@ -69,9 +69,7 @@
               </div>
               <div class="contact-details">
                 <h3>Email</h3>
-                <p>
-                  pleasanthomestay24@gmail.com<br />pleasanthomestay24@gmail.com
-                </p>
+                <p>pleasanthomestay24@gmail.com</p>
               </div>
             </div>
 
@@ -166,13 +164,39 @@
           <p>Visit us at our convenient location in Hatigaon, Guwahati</p>
         </div>
         <div class="map-container">
-          <div id="map"></div>
+          <!-- Google Maps Embedded Iframe -->
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.7625312520777!2d91.78304357434058!3d26.139284677116553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a59004c7f3e5b%3A0xf886e1d4dc7d89c7!2sPleasant%20Homestay!5e0!3m2!1sen!2sin!4v1764703370812!5m2!1sen!2sin"
+            width="100%"
+            height="460"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+
+          <!-- Get Directions Link -->
+          <div
+            class="directions-link"
+            style="text-align: center; margin-top: 20px"
+          >
+            <a
+              href="https://maps.app.goo.gl/VgGerGwJbyP8yhoK7"
+              target="_blank"
+              class="btn btn-secondary"
+              style="display: inline-flex; align-items: center; gap: 8px"
+            >
+              <i class="fas fa-directions"></i>
+              Get Directions
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
     <div data-include="components/footer.html"></div>
+
     <script src="assets/js/include.js"></script>
   </body>
 </html>

@@ -25,6 +25,142 @@ async function includeHTML() {
     }
   }
 }
+// Add this function to your include.js file (add after the existing functions)
+
+function initPHSHeader() {
+  const header = document.querySelector(".phs-header");
+  const mobileMenuBtn = document.querySelector(".phs-mobile-menu-btn");
+  const mobileNav = document.querySelector(".phs-mobile-nav");
+  const mobileNavOverlay = document.querySelector(".phs-mobile-nav-overlay");
+  const mobileNavClose = document.querySelector(".mobile-nav-close");
+  const scrollProgressBar = document.querySelector(".scroll-progress-bar");
+
+  if (!header) return;
+
+  // Scroll animation for header
+  function handleScroll() {
+    // Header scroll effect
+    if (window.scrollY > 50) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+    // Scroll progress bar
+    if (scrollProgressBar) {
+      const windowHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / windowHeight) * 100;
+      scrollProgressBar.style.width = scrolled + "%";
+    }
+  }
+
+  // Mobile menu toggle
+  function toggleMobileMenu() {
+    mobileMenuBtn.classList.toggle("active");
+    mobileNav.classList.toggle("active");
+    mobileNavOverlay.classList.toggle("active");
+    document.body.style.overflow = mobileNav.classList.contains("active")
+      ? "hidden"
+      : "";
+  }
+
+  // Close mobile menu
+  function closeMobileMenu() {
+    mobileMenuBtn.classList.remove("active");
+    mobileNav.classList.remove("active");
+    mobileNavOverlay.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  // Set active navigation link
+  function setActiveNavLink() {
+    const currentPage =
+      window.location.pathname.split("/").pop() || "index.html";
+    const desktopLinks = document.querySelectorAll(".nav-link");
+    const mobileLinks = document.querySelectorAll(".mobile-nav-link");
+
+    // Desktop links
+    desktopLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const linkPage = href.replace(".html", "");
+      const currentPageNoExt = currentPage.replace(".html", "");
+
+      if (
+        linkPage === currentPageNoExt ||
+        (currentPage === "" && href === "https://pleasanthomestay.in") ||
+        (currentPage === "index.html" && href === "https://pleasanthomestay.in")
+      ) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+    // Mobile links
+    mobileLinks.forEach((link) => {
+      const href = link.getAttribute("href");
+      const linkPage = href.replace(".html", "");
+      const currentPageNoExt = currentPage.replace(".html", "");
+
+      if (
+        linkPage === currentPageNoExt ||
+        (currentPage === "" && href === "https://pleasanthomestay.in") ||
+        (currentPage === "index.html" && href === "https://pleasanthomestay.in")
+      ) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
+  // Event listeners
+  window.addEventListener("scroll", handleScroll);
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener("click", toggleMobileMenu);
+  }
+
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener("click", closeMobileMenu);
+  }
+
+  if (mobileNavOverlay) {
+    mobileNavOverlay.addEventListener("click", closeMobileMenu);
+  }
+
+  // Close mobile menu when clicking on links
+  const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", closeMobileMenu);
+  });
+
+  // Initialize scroll state
+  handleScroll();
+
+  // Set active navigation
+  setActiveNavLink();
+
+  // Handle resize
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1024 && mobileNav.classList.contains("active")) {
+      closeMobileMenu();
+    }
+  });
+}
+
+// Update the DOMContentLoaded event in include.js to call this function
+document.addEventListener("DOMContentLoaded", function () {
+  includeHTML();
+
+  // Initialize header after includes are loaded
+  setTimeout(function () {
+    initPHSHeader();
+  }, 200);
+
+  // ... rest of your existing initialization code
+});
 
 // Function to reinitialize scripts after including content
 function reinitializeScripts() {
@@ -48,45 +184,51 @@ function reinitializeScripts() {
     });
   }
 
-  // Setup mobile menu toggle
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-  const navMenu = document.querySelector("nav ul");
+  document.addEventListener("DOMContentLoaded", () => {
+    const header = document.querySelector("#main-header");
+    const mobileBtn = document.querySelector(".mobile-menu-btn");
+    const navbar = document.querySelector(".navbar");
+    const links = document.querySelectorAll(".nav-menu a");
+    const underline = document.querySelector(".underline-indicator");
+    const progress = document.querySelector(".scroll-progress-bar");
 
-  if (mobileMenuBtn && navMenu) {
-    // Remove existing event listeners to prevent duplicates
-    const newMobileBtn = mobileMenuBtn.cloneNode(true);
-    mobileMenuBtn.parentNode.replaceChild(newMobileBtn, mobileMenuBtn);
-
-    // Add new event listener
-    newMobileBtn.addEventListener("click", function () {
-      navMenu.classList.toggle("active");
+    /* Mobile menu toggle */
+    mobileBtn.addEventListener("click", () => {
+      navbar.classList.toggle("active");
     });
 
-    // Close menu when clicking on links
-    const navLinks = document.querySelectorAll("nav ul li a");
-    navLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        navMenu.classList.remove("active");
-      });
+    /* Auto close mobile nav on click */
+    links.forEach((link) => {
+      link.addEventListener("click", () => navbar.classList.remove("active"));
     });
-  }
 
-  // Setup smooth scrolling for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      e.preventDefault();
+    /* Scroll progress + shrink header */
+    window.addEventListener("scroll", () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / height) * 100;
+      progress.style.width = scrolled + "%";
 
-      const targetId = this.getAttribute("href");
-      if (targetId === "#") return;
+      if (window.scrollY > 50) header.classList.add("scrolled");
+      else header.classList.remove("scrolled");
+    });
 
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 80,
-          behavior: "smooth",
+    /* Desktop underline animation */
+    if (window.innerWidth > 768) {
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", function () {
+          const rect = this.getBoundingClientRect();
+          const parentRect = this.closest(".nav-menu").getBoundingClientRect();
+
+          underline.style.width = rect.width + "px";
+          underline.style.left = rect.left - parentRect.left + "px";
+          underline.style.opacity = "1";
         });
-      }
-    });
+
+        link.addEventListener("mouseleave", () => {
+          underline.style.opacity = "0";
+        });
+      });
+    }
   });
 
   // Contact form handling
@@ -100,74 +242,6 @@ function reinitializeScripts() {
       this.reset();
     });
   }
-
-  // Initialize map if element exists
-  const mapElement = document.getElementById("map");
-  if (mapElement) {
-    loadMapScript();
-  }
-}
-
-// Load Leaflet map library and initialize map
-function loadMapScript() {
-  // Check if Leaflet is already loaded
-  if (typeof L === "undefined") {
-    // Load Leaflet CSS
-    const leafletCSS = document.createElement("link");
-    leafletCSS.rel = "stylesheet";
-    leafletCSS.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-    leafletCSS.integrity =
-      "sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=";
-    leafletCSS.crossOrigin = "";
-    document.head.appendChild(leafletCSS);
-
-    // Load Leaflet JS
-    const leafletJS = document.createElement("script");
-    leafletJS.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
-    leafletJS.integrity = "sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=";
-    leafletJS.crossOrigin = "";
-    leafletJS.onload = initMap;
-    document.head.appendChild(leafletJS);
-  } else {
-    // Leaflet already loaded, initialize map
-    initMap();
-  }
-}
-
-// Initialize map
-function initMap() {
-  // Coordinates for Hatigaon, Guwahati
-  const pleasantHomestay = [26.1445, 91.7362];
-
-  // Create map
-  const map = L.map("map").setView(pleasantHomestay, 15);
-
-  // Add tile layer
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-  }).addTo(map);
-
-  // Add marker
-  L.marker(pleasantHomestay)
-    .addTo(map)
-    .bindPopup(
-      `
-            <strong>Pleasant HomeStay</strong><br>
-            Lakhmi Nagar Path, Hatigaon<br>
-            Guwahati, Assam - 781006<br>
-            <a href="https://maps.google.com/?q=26.1445,91.7362" target="_blank">Get Directions</a>
-        `
-    )
-    .openPopup();
-
-  // Add circle to show approximate location area
-  L.circle(pleasantHomestay, {
-    color: "#2c5530",
-    fillColor: "#2c5530",
-    fillOpacity: 0.1,
-    radius: 200,
-  }).addTo(map);
 }
 
 // Set active navigation link based on current page
@@ -208,124 +282,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Export functions for use in other scripts if needed
 if (typeof module !== "undefined" && module.exports) {
-  module.exports = { includeHTML, reinitializeScripts, initMap };
+  module.exports = { includeHTML, reinitializeScripts };
 }
-
-// Header functionality
-document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-  const navbar = document.querySelector(".navbar");
-  const navLinks = document.querySelectorAll(".nav-menu a");
-  const underlineIndicator = document.querySelector(".underline-indicator");
-  const scrollProgressBar = document.querySelector(".scroll-progress-bar");
-
-  // Mobile Menu Toggle
-  if (mobileMenuBtn) {
-    mobileMenuBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      navbar.classList.toggle("active");
-    });
-  }
-
-  // Close mobile menu when clicking outside
-  document.addEventListener("click", function (e) {
-    if (!navbar.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-      navbar.classList.remove("active");
-    }
-  });
-
-  // Close mobile menu when clicking a link
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      navbar.classList.remove("active");
-    });
-  });
-
-  // Underline indicator on hover
-  navLinks.forEach((link) => {
-    link.addEventListener("mouseenter", function () {
-      const linkRect = this.getBoundingClientRect();
-      const navRect = this.closest(".nav-menu").getBoundingClientRect();
-
-      underlineIndicator.style.width = linkRect.width + "px";
-      underlineIndicator.style.left = linkRect.left - navRect.left + "px";
-      underlineIndicator.style.opacity = "1";
-    });
-
-    link.addEventListener("mouseleave", function () {
-      if (!this.classList.contains("active")) {
-        underlineIndicator.style.opacity = "0";
-      }
-    });
-  });
-
-  // Update active link underline
-  function updateActiveLinkIndicator() {
-    const activeLink = document.querySelector(".nav-menu a.active");
-    if (activeLink && underlineIndicator) {
-      const linkRect = activeLink.getBoundingClientRect();
-      const navRect = activeLink.closest(".nav-menu").getBoundingClientRect();
-
-      underlineIndicator.style.width = linkRect.width + "px";
-      underlineIndicator.style.left = linkRect.left - navRect.left + "px";
-      underlineIndicator.style.opacity = "1";
-    }
-  }
-
-  // Update on load
-  updateActiveLinkIndicator();
-
-  // Scroll Progress Bar
-  function updateScrollProgress() {
-    const windowHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-    const scrolled = (window.scrollY / windowHeight) * 100;
-    scrollProgressBar.style.width = scrolled + "%";
-
-    // Header scroll effect
-    if (window.scrollY > 50) {
-      header.classList.add("scrolled");
-    } else {
-      header.classList.remove("scrolled");
-    }
-  }
-
-  // Update on scroll
-  window.addEventListener("scroll", updateScrollProgress);
-
-  // Update on resize
-  window.addEventListener("resize", function () {
-    updateActiveLinkIndicator();
-  });
-
-  // Initialize
-  updateScrollProgress();
-
-  // Update underline indicator on page load
-  setTimeout(updateActiveLinkIndicator, 100);
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-      if (href === "#" || href.startsWith("#")) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetElement = document.getElementById(targetId);
-
-        if (targetElement) {
-          const headerHeight = header.offsetHeight;
-          const targetPosition = targetElement.offsetTop - headerHeight;
-
-          window.scrollTo({
-            top: targetPosition,
-
-            behavior: "smooth",
-          });
-        }
-      }
-    });
-  });
-});
