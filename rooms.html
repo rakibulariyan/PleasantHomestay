@@ -1,652 +1,725 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Our Rooms - Pleasant HomeStay</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-
-
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
     <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="index.html" class="logo">Pleasant <span>HomeStay</span></a>
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="rooms.html" class="active">Rooms</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div data-include="components/header.html"></div>
 
-    <!-- Rooms Hero -->
-    <section class="rooms-hero">
-        <div class="container">
-            <h1>Our Rooms & Suites</h1>
-            <p>Experience comfort and luxury in our carefully designed accommodations</p>
+    <!-- Hero Section -->
+    <section class="page-hero">
+      <div class="container">
+        <h1>Our Rooms & Suites</h1>
+        <p class="page-description">
+          Experience comfort and luxury in our carefully designed accommodations
+        </p>
+        <p class="last-updated">
+          Last updated: <span class="current-date"></span>
+        </p>
+        <div class="breadcrumb">
+          <a href="https://pleasanthomestay.in/">Home</a>
+          <span>/</span>
+          <span class="current-page">Rooms</span>
         </div>
+      </div>
     </section>
 
     <!-- Room Filters -->
     <section class="room-filters">
-        <div class="container">
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Rooms</button>
-                <button class="filter-btn" data-filter="standard">Standard</button>
-                <button class="filter-btn" data-filter="deluxe">Deluxe</button>
-                <button class="filter-btn" data-filter="suite">Suites</button>
-                <button class="filter-btn" data-filter="family">Family</button>
-            </div>
+      <div class="container">
+        <div class="filter-container">
+          <button class="filter-btn active" data-filter="all">All Rooms</button>
+          <button class="filter-btn" data-filter="standard">Standard</button>
+          <button class="filter-btn" data-filter="deluxe">Deluxe</button>
+          <button class="filter-btn" data-filter="suite">Suites</button>
+          <button class="filter-btn" data-filter="family">Family</button>
         </div>
+      </div>
     </section>
 
     <!-- Rooms Grid -->
     <section class="rooms-section">
-        <div class="container">
-            <div class="rooms-grid">
-                <!-- Standard Room -->
-                <div class="room-card" data-category="standard">
-                    <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Standard Room">
-                        <div class="room-badge">Most Popular</div>
-                    </div>
-                    <div class="room-info">
-                        <div class="room-header">
-                            <div class="room-title">
-                                <h3>Standard Room</h3>
-                                <p>Perfect for solo travelers and couples</p>
-                            </div>
-                            <div class="room-price">
-                                <div class="price-amount">₹1,499</div>
-                                <div class="price-period">per night</div>
-                            </div>
-                        </div>
-                        <ul class="room-features">
-                            <li><i class="fas fa-check"></i> Comfortable double bed</li>
-                            <li><i class="fas fa-check"></i> Private bathroom</li>
-                            <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
-                            <li><i class="fas fa-check"></i> Air conditioning</li>
-                            <li><i class="fas fa-check"></i> Mountain view</li>
-                        </ul>
-                        <div class="room-actions">
-                            <button class="btn btn-outline view-details" data-room="standard">View Details</button>
-                            <button class="btn book-now" data-room="standard">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Deluxe Room -->
-                <div class="room-card" data-category="deluxe">
-                    <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Deluxe Room">
-                        <div class="room-badge">Best Value</div>
-                    </div>
-                    <div class="room-info">
-                        <div class="room-header">
-                            <div class="room-title">
-                                <h3>Deluxe Room</h3>
-                                <p>Extra space with premium amenities</p>
-                            </div>
-                            <div class="room-price">
-                                <div class="price-amount">₹2,199</div>
-                                <div class="price-period">per night</div>
-                            </div>
-                        </div>
-                        <ul class="room-features">
-                            <li><i class="fas fa-check"></i> King-size bed</li>
-                            <li><i class="fas fa-check"></i> Private balcony</li>
-                            <li><i class="fas fa-check"></i> Ensuite bathroom</li>
-                            <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
-                            <li><i class="fas fa-check"></i> Garden view</li>
-                        </ul>
-                        <div class="room-actions">
-                            <button class="btn btn-outline view-details" data-room="deluxe">View Details</button>
-                            <button class="btn book-now" data-room="deluxe">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Family Suite -->
-                <div class="room-card" data-category="suite family">
-                    <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Family Suite">
-                        <div class="room-badge">Family Favorite</div>
-                    </div>
-                    <div class="room-info">
-                        <div class="room-header">
-                            <div class="room-title">
-                                <h3>Family Suite</h3>
-                                <p>Spacious accommodation for families</p>
-                            </div>
-                            <div class="room-price">
-                                <div class="price-amount">₹3,499</div>
-                                <div class="price-period">per night</div>
-                            </div>
-                        </div>
-                        <ul class="room-features">
-                            <li><i class="fas fa-check"></i> Two separate bedrooms</li>
-                            <li><i class="fas fa-check"></i> Living area</li>
-                            <li><i class="fas fa-check"></i> Kitchenette</li>
-                            <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
-                            <li><i class="fas fa-check"></i> Panoramic view</li>
-                        </ul>
-                        <div class="room-actions">
-                            <button class="btn btn-outline view-details" data-room="family">View Details</button>
-                            <button class="btn book-now" data-room="family">Book Now</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Executive Suite -->
-                <div class="room-card" data-category="suite">
-                    <div class="room-image">
-                        <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Executive Suite">
-                        <div class="room-badge">Luxury</div>
-                    </div>
-                    <div class="room-info">
-                        <div class="room-header">
-                            <div class="room-title">
-                                <h3>Executive Suite</h3>
-                                <p>Ultimate luxury and comfort</p>
-                            </div>
-                            <div class="room-price">
-                                <div class="price-amount">₹4,999</div>
-                                <div class="price-period">per night</div>
-                            </div>
-                        </div>
-                        <ul class="room-features">
-                            <li><i class="fas fa-check"></i> Separate living room</li>
-                            <li><i class="fas fa-check"></i> Jacuzzi bathroom</li>
-                            <li><i class="fas fa-check"></i> Private terrace</li>
-                            <li><i class="fas fa-check"></i> Premium amenities</li>
-                            <li><i class="fas fa-check"></i> City view</li>
-                        </ul>
-                        <div class="room-actions">
-                            <button class="btn btn-outline view-details" data-room="executive">View Details</button>
-                            <button class="btn book-now" data-room="executive">Book Now</button>
-                        </div>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="rooms-grid">
+          <!-- Standard Room -->
+          <div class="room-card" data-category="standard">
+            <div class="room-image">
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Standard Room"
+              />
+              <div class="room-badge">Most Popular</div>
             </div>
+            <div class="room-info">
+              <div class="room-header">
+                <div class="room-title">
+                  <h3>Standard Room</h3>
+                  <p>Perfect for solo travelers and couples</p>
+                </div>
+                <div class="room-price">
+                  <div class="price-amount">₹1,499</div>
+                  <div class="price-period">per night</div>
+                </div>
+              </div>
+              <ul class="room-features">
+                <li><i class="fas fa-check"></i> Comfortable double bed</li>
+                <li><i class="fas fa-check"></i> Private bathroom</li>
+                <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
+                <li><i class="fas fa-check"></i> Air conditioning</li>
+                <li><i class="fas fa-check"></i> Mountain view</li>
+              </ul>
+              <div class="room-actions">
+                <button
+                  class="btn btn-outline view-details"
+                  data-room="standard"
+                >
+                  View Details
+                </button>
+                <button class="btn book-now" data-room="standard">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Deluxe Room -->
+          <div class="room-card" data-category="deluxe">
+            <div class="room-image">
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Deluxe Room"
+              />
+              <div class="room-badge">Best Value</div>
+            </div>
+            <div class="room-info">
+              <div class="room-header">
+                <div class="room-title">
+                  <h3>Deluxe Room</h3>
+                  <p>Extra space with premium amenities</p>
+                </div>
+                <div class="room-price">
+                  <div class="price-amount">₹2,199</div>
+                  <div class="price-period">per night</div>
+                </div>
+              </div>
+              <ul class="room-features">
+                <li><i class="fas fa-check"></i> King-size bed</li>
+                <li><i class="fas fa-check"></i> Private balcony</li>
+                <li><i class="fas fa-check"></i> Ensuite bathroom</li>
+                <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
+                <li><i class="fas fa-check"></i> Garden view</li>
+              </ul>
+              <div class="room-actions">
+                <button class="btn btn-outline view-details" data-room="deluxe">
+                  View Details
+                </button>
+                <button class="btn book-now" data-room="deluxe">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Family Suite -->
+          <div class="room-card" data-category="suite family">
+            <div class="room-image">
+              <img
+                src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Family Suite"
+              />
+              <div class="room-badge">Family Favorite</div>
+            </div>
+            <div class="room-info">
+              <div class="room-header">
+                <div class="room-title">
+                  <h3>Family Suite</h3>
+                  <p>Spacious accommodation for families</p>
+                </div>
+                <div class="room-price">
+                  <div class="price-amount">₹3,499</div>
+                  <div class="price-period">per night</div>
+                </div>
+              </div>
+              <ul class="room-features">
+                <li><i class="fas fa-check"></i> Two separate bedrooms</li>
+                <li><i class="fas fa-check"></i> Living area</li>
+                <li><i class="fas fa-check"></i> Kitchenette</li>
+                <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
+                <li><i class="fas fa-check"></i> Panoramic view</li>
+              </ul>
+              <div class="room-actions">
+                <button class="btn btn-outline view-details" data-room="family">
+                  View Details
+                </button>
+                <button class="btn book-now" data-room="family">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Executive Suite -->
+          <div class="room-card" data-category="suite">
+            <div class="room-image">
+              <img
+                src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                alt="Executive Suite"
+              />
+              <div class="room-badge">Luxury</div>
+            </div>
+            <div class="room-info">
+              <div class="room-header">
+                <div class="room-title">
+                  <h3>Executive Suite</h3>
+                  <p>Ultimate luxury and comfort</p>
+                </div>
+                <div class="room-price">
+                  <div class="price-amount">₹4,999</div>
+                  <div class="price-period">per night</div>
+                </div>
+              </div>
+              <ul class="room-features">
+                <li><i class="fas fa-check"></i> Separate living room</li>
+                <li><i class="fas fa-check"></i> Jacuzzi bathroom</li>
+                <li><i class="fas fa-check"></i> Private terrace</li>
+                <li><i class="fas fa-check"></i> Premium amenities</li>
+                <li><i class="fas fa-check"></i> City view</li>
+              </ul>
+              <div class="room-actions">
+                <button
+                  class="btn btn-outline view-details"
+                  data-room="executive"
+                >
+                  View Details
+                </button>
+                <button class="btn book-now" data-room="executive">
+                  Book Now
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Amenities Section -->
     <section class="amenities-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Room Amenities</h2>
-                <p>All our rooms come with these premium amenities</p>
-            </div>
-            <div class="amenities-grid">
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-wifi"></i>
-                    </div>
-                    <h3>Free High-Speed WiFi</h3>
-                    <p>Stay connected with complimentary high-speed internet</p>
-                </div>
-                
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-tv"></i>
-                    </div>
-                    <h3>Smart TV</h3>
-                    <p>Entertainment with streaming services and cable channels</p>
-                </div>
-                
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-snowflake"></i>
-                    </div>
-                    <h3>Air Conditioning</h3>
-                    <p>Individual climate control in every room</p>
-                </div>
-                
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-coffee"></i>
-                    </div>
-                    <h3>Tea/Coffee Maker</h3>
-                    <p>In-room beverage facilities for your convenience</p>
-                </div>
-                
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-lock"></i>
-                    </div>
-                    <h3>Electronic Safe</h3>
-                    <p>Secure your valuables with in-room safety deposit</p>
-                </div>
-                
-                <div class="amenity-card">
-                    <div class="amenity-icon">
-                        <i class="fas fa-concierge-bell"></i>
-                    </div>
-                    <h3>24/7 Room Service</h3>
-                    <p>Round-the-clock service for all your needs</p>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-title">
+          <h2>Room Amenities</h2>
+          <p>All our rooms come with these premium amenities</p>
         </div>
+        <div class="amenities-grid">
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-wifi"></i>
+            </div>
+            <h3>Free High-Speed WiFi</h3>
+            <p>Stay connected with complimentary high-speed internet</p>
+          </div>
+
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-tv"></i>
+            </div>
+            <h3>Smart TV</h3>
+            <p>Entertainment with streaming services and cable channels</p>
+          </div>
+
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-snowflake"></i>
+            </div>
+            <h3>Air Conditioning</h3>
+            <p>Individual climate control in every room</p>
+          </div>
+
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-coffee"></i>
+            </div>
+            <h3>Tea/Coffee Maker</h3>
+            <p>In-room beverage facilities for your convenience</p>
+          </div>
+
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-lock"></i>
+            </div>
+            <h3>Electronic Safe</h3>
+            <p>Secure your valuables with in-room safety deposit</p>
+          </div>
+
+          <div class="amenity-card">
+            <div class="amenity-icon">
+              <i class="fas fa-concierge-bell"></i>
+            </div>
+            <h3>24/7 Room Service</h3>
+            <p>Round-the-clock service for all your needs</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Book Your Stay?</h2>
-                <p>Experience the perfect blend of comfort and hospitality at Pleasant HomeStay</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-                    <a href="tel:+919876543210" class="btn">Call Now</a>
-                </div>
-            </div>
+      <div class="container">
+        <div class="cta-content">
+          <h2>Ready to Book Your Stay?</h2>
+          <p>
+            Experience the perfect blend of comfort and hospitality at Pleasant
+            HomeStay
+          </p>
+          <div class="cta-buttons">
+            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+            <a href="tel:+919876543210" class="btn">Call Now</a>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Room Details Modal -->
     <div class="modal" id="roomModal">
-        <div class="modal-content">
-            <div class="close-modal">
-                <i class="fas fa-times"></i>
-            </div>
-            <div class="modal-gallery">
-                <div class="main-image">
-                    <img id="modalMainImage" src="" alt="Room Image">
-                </div>
-                <div class="thumbnails">
-                    <div class="thumbnail">
-                        <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Room View 1">
-                    </div>
-                    <div class="thumbnail">
-                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Room View 2">
-                    </div>
-                </div>
-            </div>
-            <div class="modal-details">
-                <div class="modal-header">
-                    <div>
-                        <h2 id="modalRoomTitle">Standard Room</h2>
-                        <p id="modalRoomDesc">Perfect for solo travelers and couples</p>
-                    </div>
-                    <div class="room-price">
-                        <div class="price-amount" id="modalRoomPrice">₹1,499</div>
-                        <div class="price-period">per night</div>
-                    </div>
-                </div>
-                
-                <div class="modal-features">
-                    <div class="feature-category">
-                        <h4>Room Features</h4>
-                        <ul class="feature-list" id="roomFeatures">
-                            <li><i class="fas fa-check"></i> Comfortable double bed</li>
-                            <li><i class="fas fa-check"></i> Private bathroom</li>
-                            <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
-                        </ul>
-                    </div>
-                    <div class="feature-category">
-                        <h4>Amenities</h4>
-                        <ul class="feature-list" id="roomAmenities">
-                            <li><i class="fas fa-check"></i> Air conditioning</li>
-                            <li><i class="fas fa-check"></i> Smart TV</li>
-                            <li><i class="fas fa-check"></i> Tea/Coffee maker</li>
-                        </ul>
-                    </div>
-                    <div class="feature-category">
-                        <h4>Services</h4>
-                        <ul class="feature-list" id="roomServices">
-                            <li><i class="fas fa-check"></i> Daily housekeeping</li>
-                            <li><i class="fas fa-check"></i> 24/7 room service</li>
-                            <li><i class="fas fa-check"></i> Laundry service</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="room-actions">
-                    <button class="btn btn-outline" onclick="closeModal()">Close</button>
-                    <button class="btn" onclick="bookRoom()">Book This Room</button>
-                </div>
-            </div>
+      <div class="modal-content">
+        <div class="close-modal">
+          <i class="fas fa-times"></i>
         </div>
+        <div class="modal-gallery">
+          <div class="main-image">
+            <img id="modalMainImage" src="" alt="Room Image" />
+          </div>
+          <div class="thumbnails">
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Room View 1"
+              />
+            </div>
+            <div class="thumbnail">
+              <img
+                src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                alt="Room View 2"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="modal-details">
+          <div class="modal-header">
+            <div>
+              <h2 id="modalRoomTitle">Standard Room</h2>
+              <p id="modalRoomDesc">Perfect for solo travelers and couples</p>
+            </div>
+            <div class="room-price">
+              <div class="price-amount" id="modalRoomPrice">₹1,499</div>
+              <div class="price-period">per night</div>
+            </div>
+          </div>
+
+          <div class="modal-features">
+            <div class="feature-category">
+              <h4>Room Features</h4>
+              <ul class="feature-list" id="roomFeatures">
+                <li><i class="fas fa-check"></i> Comfortable double bed</li>
+                <li><i class="fas fa-check"></i> Private bathroom</li>
+                <li><i class="fas fa-check"></i> Free high-speed WiFi</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h4>Amenities</h4>
+              <ul class="feature-list" id="roomAmenities">
+                <li><i class="fas fa-check"></i> Air conditioning</li>
+                <li><i class="fas fa-check"></i> Smart TV</li>
+                <li><i class="fas fa-check"></i> Tea/Coffee maker</li>
+              </ul>
+            </div>
+            <div class="feature-category">
+              <h4>Services</h4>
+              <ul class="feature-list" id="roomServices">
+                <li><i class="fas fa-check"></i> Daily housekeeping</li>
+                <li><i class="fas fa-check"></i> 24/7 room service</li>
+                <li><i class="fas fa-check"></i> Laundry service</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="room-actions">
+            <button class="btn btn-outline" onclick="closeModal()">
+              Close
+            </button>
+            <button class="btn" onclick="bookRoom()">Book This Room</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-<!-- Footer -->
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Pleasant HomeStay</h3>
-                    <p>A cozy and peaceful stay in Hatigaon, Guwahati, ideal for families, Couples, solo travelers.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/p/Pleasant-Homestay-Guwahati-100065071669061"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/pleasant_homestay_"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="https://pleasanthomestay.in/">Home</a></li>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="rooms.html">Rooms</a></li>
-                        <li><a href="gallery.html">Gallery</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                        <li><a href="career.html">Careers</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt"></i> Lakhmi Nagar Path, Hatigaon, Guwahati, Assam - 781006</li>
-                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
-                        <li><i class="fas fa-envelope"></i> info@pleasanthomestay.com</li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h3>Legal</h3>
-                    <ul class="footer-links">
-                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
-                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
-                        <li><a href="cancellation-policy.html">Cancellation Policy</a></li>
-                        <li><a href="disclaimer.html">Disclaimer</a></li>
-                    </ul>
-                </div>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Pleasant HomeStay</h3>
+            <p>
+              A cozy and peaceful stay in Hatigaon, Guwahati, ideal for
+              families, Couples, solo travelers.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/p/Pleasant-Homestay-Guwahati-100065071669061"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a href="https://www.instagram.com/pleasant_homestay_"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
-            
-            <div class="copyright">
-                <p>
-                    &copy; <span id="year"></span> Pleasant HomeStay. All Rights Reserved. <br>
-                    Designed & Developed by 
-                    <a href="https://axomtimes.in" target="_blank" rel="dofollow" style="color: var(--secondary);">
-                        Barak WebSoft
-                    </a>.
-                </p>
-            </div>
+          </div>
+
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="https://pleasanthomestay.in/">Home</a></li>
+              <li><a href="about-us.html">About Us</a></li>
+              <li><a href="rooms.html">Rooms</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="contact-us.html">Contact Us</a></li>
+              <li><a href="career.html">Careers</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Contact Info</h3>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt"></i> Lakhmi Nagar Path,
+                Hatigaon, Guwahati, Assam - 781006
+              </li>
+              <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+              <li><i class="fas fa-envelope"></i> info@pleasanthomestay.com</li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul class="footer-links">
+              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+              <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+              <li>
+                <a href="cancellation-policy.html">Cancellation Policy</a>
+              </li>
+              <li><a href="disclaimer.html">Disclaimer</a></li>
+            </ul>
+          </div>
         </div>
+
+        <div class="copyright">
+          <p>
+            &copy; <span id="year"></span> Pleasant HomeStay. All Rights
+            Reserved. <br />
+            Designed & Developed by
+            <a
+              href="https://axomtimes.in"
+              target="_blank"
+              rel="dofollow"
+              style="color: var(--secondary)"
+            >
+              Barak WebSoft </a
+            >.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-        // Set current year in footer
-        document.getElementById('year').textContent = new Date().getFullYear();
-        // Mobile menu toggle
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-        
-        // Close mobile menu when clicking on a link
-        document.querySelectorAll('nav ul li a').forEach(link => {
-            link.addEventListener('click', function() {
-                document.querySelector('nav ul').classList.remove('active');
-            });
+      // Set current year in footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+      // Mobile menu toggle
+      document
+        .querySelector(".mobile-menu-btn")
+        .addEventListener("click", function () {
+          document.querySelector("nav ul").classList.toggle("active");
         });
 
-        // Room filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const roomCards = document.querySelectorAll('.room-card');
-
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                // Remove active class from all buttons
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to clicked button
-                this.classList.add('active');
-                
-                const filter = this.getAttribute('data-filter');
-                
-                roomCards.forEach(card => {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    if (filter === 'all' || categories.includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll("nav ul li a").forEach((link) => {
+        link.addEventListener("click", function () {
+          document.querySelector("nav ul").classList.remove("active");
         });
+      });
 
-        // Room data
-        const roomData = {
-            standard: {
-                title: "Standard Room",
-                description: "Perfect for solo travelers and couples",
-                price: "₹1,499",
-                features: [
-                    "Comfortable double bed",
-                    "Private bathroom with shower",
-                    "Free high-speed WiFi",
-                    "Air conditioning",
-                    "Mountain view",
-                    "32-inch Smart TV",
-                    "Tea/Coffee maker",
-                    "Electronic safe"
-                ],
-                amenities: [
-                    "Air conditioning",
-                    "Smart TV with streaming",
-                    "Tea/Coffee maker",
-                    "Electronic safe",
-                    "Work desk",
-                    "Hairdryer"
-                ],
-                services: [
-                    "Daily housekeeping",
-                    "24/7 room service",
-                    "Laundry service",
-                    "Wake-up call service",
-                    "Luggage storage"
-                ],
-                images: [
-                    "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ]
-            },
-            deluxe: {
-                title: "Deluxe Room",
-                description: "Extra space with premium amenities",
-                price: "₹2,199",
-                features: [
-                    "King-size bed",
-                    "Private balcony",
-                    "Ensuite bathroom with bathtub",
-                    "Free high-speed WiFi",
-                    "Garden view",
-                    "40-inch Smart TV",
-                    "Mini refrigerator",
-                    "Sitting area"
-                ],
-                amenities: [
-                    "Air conditioning",
-                    "Smart TV with streaming",
-                    "Mini refrigerator",
-                    "Tea/Coffee maker",
-                    "Electronic safe",
-                    "Premium toiletries"
-                ],
-                services: [
-                    "Daily housekeeping",
-                    "24/7 room service",
-                    "Laundry service",
-                    "Wake-up call service",
-                    "Turndown service"
-                ],
-                images: [
-                    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ]
-            },
-            family: {
-                title: "Family Suite",
-                description: "Spacious accommodation for families",
-                price: "₹3,499",
-                features: [
-                    "Two separate bedrooms",
-                    "Living area with sofa",
-                    "Kitchenette with microwave",
-                    "Free high-speed WiFi",
-                    "Panoramic view",
-                    "Two Smart TVs",
-                    "Dining area",
-                    "Extra storage space"
-                ],
-                amenities: [
-                    "Air conditioning",
-                    "Two Smart TVs",
-                    "Kitchenette",
-                    "Dining area",
-                    "Electronic safe",
-                    "Family-friendly amenities"
-                ],
-                services: [
-                    "Daily housekeeping",
-                    "24/7 room service",
-                    "Laundry service",
-                    "Baby sitting service",
-                    "Extra bedding available"
-                ],
-                images: [
-                    "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ]
-            },
-            executive: {
-                title: "Executive Suite",
-                description: "Ultimate luxury and comfort",
-                price: "₹4,999",
-                features: [
-                    "Separate living room",
-                    "Jacuzzi bathroom",
-                    "Private terrace",
-                    "Free high-speed WiFi",
-                    "City view",
-                    "55-inch Smart TV",
-                    "Mini bar",
-                    "Walk-in closet"
-                ],
-                amenities: [
-                    "Air conditioning",
-                    "Premium Smart TV",
-                    "Mini bar",
-                    "Jacuzzi",
-                    "Premium toiletries",
-                    "Bathrobes and slippers"
-                ],
-                services: [
-                    "Butler service",
-                    "24/7 room service",
-                    "Premium turndown service",
-                    "Personalized welcome",
-                    "Express check-in/out"
-                ],
-                images: [
-                    "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-                    "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                ]
+      // Room filtering
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      const roomCards = document.querySelectorAll(".room-card");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", function () {
+          // Remove active class from all buttons
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          // Add active class to clicked button
+          this.classList.add("active");
+
+          const filter = this.getAttribute("data-filter");
+
+          roomCards.forEach((card) => {
+            const categories = card.getAttribute("data-category").split(" ");
+            if (filter === "all" || categories.includes(filter)) {
+              card.style.display = "block";
+            } else {
+              card.style.display = "none";
             }
-        };
-
-        // View details functionality
-        document.querySelectorAll('.view-details').forEach(button => {
-            button.addEventListener('click', function() {
-                const roomType = this.getAttribute('data-room');
-                openRoomModal(roomType);
-            });
+          });
         });
+      });
 
-        // Book now functionality
-        document.querySelectorAll('.book-now').forEach(button => {
-            button.addEventListener('click', function() {
-                const roomType = this.getAttribute('data-room');
-                window.location.href = `contact.html?room=${roomType}`;
-            });
+      // Room data
+      const roomData = {
+        standard: {
+          title: "Standard Room",
+          description: "Perfect for solo travelers and couples",
+          price: "₹1,499",
+          features: [
+            "Comfortable double bed",
+            "Private bathroom with shower",
+            "Free high-speed WiFi",
+            "Air conditioning",
+            "Mountain view",
+            "32-inch Smart TV",
+            "Tea/Coffee maker",
+            "Electronic safe",
+          ],
+          amenities: [
+            "Air conditioning",
+            "Smart TV with streaming",
+            "Tea/Coffee maker",
+            "Electronic safe",
+            "Work desk",
+            "Hairdryer",
+          ],
+          services: [
+            "Daily housekeeping",
+            "24/7 room service",
+            "Laundry service",
+            "Wake-up call service",
+            "Luggage storage",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          ],
+        },
+        deluxe: {
+          title: "Deluxe Room",
+          description: "Extra space with premium amenities",
+          price: "₹2,199",
+          features: [
+            "King-size bed",
+            "Private balcony",
+            "Ensuite bathroom with bathtub",
+            "Free high-speed WiFi",
+            "Garden view",
+            "40-inch Smart TV",
+            "Mini refrigerator",
+            "Sitting area",
+          ],
+          amenities: [
+            "Air conditioning",
+            "Smart TV with streaming",
+            "Mini refrigerator",
+            "Tea/Coffee maker",
+            "Electronic safe",
+            "Premium toiletries",
+          ],
+          services: [
+            "Daily housekeeping",
+            "24/7 room service",
+            "Laundry service",
+            "Wake-up call service",
+            "Turndown service",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          ],
+        },
+        family: {
+          title: "Family Suite",
+          description: "Spacious accommodation for families",
+          price: "₹3,499",
+          features: [
+            "Two separate bedrooms",
+            "Living area with sofa",
+            "Kitchenette with microwave",
+            "Free high-speed WiFi",
+            "Panoramic view",
+            "Two Smart TVs",
+            "Dining area",
+            "Extra storage space",
+          ],
+          amenities: [
+            "Air conditioning",
+            "Two Smart TVs",
+            "Kitchenette",
+            "Dining area",
+            "Electronic safe",
+            "Family-friendly amenities",
+          ],
+          services: [
+            "Daily housekeeping",
+            "24/7 room service",
+            "Laundry service",
+            "Baby sitting service",
+            "Extra bedding available",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          ],
+        },
+        executive: {
+          title: "Executive Suite",
+          description: "Ultimate luxury and comfort",
+          price: "₹4,999",
+          features: [
+            "Separate living room",
+            "Jacuzzi bathroom",
+            "Private terrace",
+            "Free high-speed WiFi",
+            "City view",
+            "55-inch Smart TV",
+            "Mini bar",
+            "Walk-in closet",
+          ],
+          amenities: [
+            "Air conditioning",
+            "Premium Smart TV",
+            "Mini bar",
+            "Jacuzzi",
+            "Premium toiletries",
+            "Bathrobes and slippers",
+          ],
+          services: [
+            "Butler service",
+            "24/7 room service",
+            "Premium turndown service",
+            "Personalized welcome",
+            "Express check-in/out",
+          ],
+          images: [
+            "https://images.unsplash.com/photo-1611892440504-42a792e24d32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+          ],
+        },
+      };
+
+      // View details functionality
+      document.querySelectorAll(".view-details").forEach((button) => {
+        button.addEventListener("click", function () {
+          const roomType = this.getAttribute("data-room");
+          openRoomModal(roomType);
         });
+      });
 
-        // Thumbnail click functionality
-        document.addEventListener('click', function(e) {
-            if (e.target.classList.contains('thumbnail') || e.target.parentElement.classList.contains('thumbnail')) {
-                const thumbnail = e.target.classList.contains('thumbnail') ? e.target : e.target.parentElement;
-                const imgSrc = thumbnail.querySelector('img').src;
-                document.getElementById('modalMainImage').src = imgSrc;
-            }
+      // Book now functionality
+      document.querySelectorAll(".book-now").forEach((button) => {
+        button.addEventListener("click", function () {
+          const roomType = this.getAttribute("data-room");
+          window.location.href = `contact.html?room=${roomType}`;
         });
+      });
 
-        function openRoomModal(roomType) {
-            const room = roomData[roomType];
-            if (!room) return;
-
-            // Update modal content
-            document.getElementById('modalRoomTitle').textContent = room.title;
-            document.getElementById('modalRoomDesc').textContent = room.description;
-            document.getElementById('modalRoomPrice').textContent = room.price;
-            
-            // Update main image
-            document.getElementById('modalMainImage').src = room.images[0];
-            
-            // Update features lists
-            updateFeatureList('roomFeatures', room.features);
-            updateFeatureList('roomAmenities', room.amenities);
-            updateFeatureList('roomServices', room.services);
-            
-            // Update thumbnails
-            const thumbnails = document.querySelectorAll('.thumbnail img');
-            room.images.forEach((image, index) => {
-                if (thumbnails[index]) {
-                    thumbnails[index].src = image;
-                }
-            });
-            
-            // Show modal
-            document.getElementById('roomModal').style.display = 'block';
-            document.body.style.overflow = 'hidden';
+      // Thumbnail click functionality
+      document.addEventListener("click", function (e) {
+        if (
+          e.target.classList.contains("thumbnail") ||
+          e.target.parentElement.classList.contains("thumbnail")
+        ) {
+          const thumbnail = e.target.classList.contains("thumbnail")
+            ? e.target
+            : e.target.parentElement;
+          const imgSrc = thumbnail.querySelector("img").src;
+          document.getElementById("modalMainImage").src = imgSrc;
         }
+      });
 
-        function updateFeatureList(elementId, features) {
-            const element = document.getElementById(elementId);
-            element.innerHTML = '';
-            features.forEach(feature => {
-                const li = document.createElement('li');
-                li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
-                element.appendChild(li);
-            });
-        }
+      function openRoomModal(roomType) {
+        const room = roomData[roomType];
+        if (!room) return;
 
-        function closeModal() {
-            document.getElementById('roomModal').style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        // Update modal content
+        document.getElementById("modalRoomTitle").textContent = room.title;
+        document.getElementById("modalRoomDesc").textContent = room.description;
+        document.getElementById("modalRoomPrice").textContent = room.price;
 
-        function bookRoom() {
-            const roomTitle = document.getElementById('modalRoomTitle').textContent;
-            window.location.href = `contact.html?room=${encodeURIComponent(roomTitle)}`;
-        }
+        // Update main image
+        document.getElementById("modalMainImage").src = room.images[0];
 
-        // Close modal when clicking outside
-        document.getElementById('roomModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
+        // Update features lists
+        updateFeatureList("roomFeatures", room.features);
+        updateFeatureList("roomAmenities", room.amenities);
+        updateFeatureList("roomServices", room.services);
+
+        // Update thumbnails
+        const thumbnails = document.querySelectorAll(".thumbnail img");
+        room.images.forEach((image, index) => {
+          if (thumbnails[index]) {
+            thumbnails[index].src = image;
+          }
         });
 
-        // Close modal with escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeModal();
-            }
+        // Show modal
+        document.getElementById("roomModal").style.display = "block";
+        document.body.style.overflow = "hidden";
+      }
+
+      function updateFeatureList(elementId, features) {
+        const element = document.getElementById(elementId);
+        element.innerHTML = "";
+        features.forEach((feature) => {
+          const li = document.createElement("li");
+          li.innerHTML = `<i class="fas fa-check"></i> ${feature}`;
+          element.appendChild(li);
+        });
+      }
+
+      function closeModal() {
+        document.getElementById("roomModal").style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+
+      function bookRoom() {
+        const roomTitle = document.getElementById("modalRoomTitle").textContent;
+        window.location.href = `contact.html?room=${encodeURIComponent(
+          roomTitle
+        )}`;
+      }
+
+      // Close modal when clicking outside
+      document
+        .getElementById("roomModal")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
         });
 
-        // Close modal button
-        document.querySelector('.close-modal').addEventListener('click', closeModal);
+      // Close modal with escape key
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") {
+          closeModal();
+        }
+      });
+
+      // Close modal button
+      document
+        .querySelector(".close-modal")
+        .addEventListener("click", closeModal);
     </script>
-</body>
+  </body>
 </html>
