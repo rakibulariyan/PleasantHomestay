@@ -1,0 +1,20 @@
+name: Code Style Check
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  style-lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Run Prettier check
+        uses: creyD/prettier_action@v4.3
+        with:
+          prettier_options: '--check "**/*.html" "**/*.css" "**/*.js"'

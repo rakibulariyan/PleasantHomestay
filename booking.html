@@ -420,24 +420,10 @@
           <form
             id="bookingForm"
             class="booking-form"
-            action="https://formsubmit.co/pleasanthomestay24@gmail.com"
+            action="https://script.google.com/macros/s/AKfycbycnvx4IHvs1Qq3NrPHtJoOUhA36mmGbEOYTy8RJ1vWPNdYaX3P23DQD-nnGlB4OupW8A/exec"
             method="POST"
+            target="_top"
           >
-            <!-- Add FormSubmit hidden fields -->
-            <input
-              type="hidden"
-              name="_subject"
-              value="New Guest House Booking Request"
-            />
-            <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input
-              type="hidden"
-              name="_autoresponse"
-              value="Thank you for your booking request! We will contact you within 24 hours for confirmation. Your booking details have been received successfully."
-            />
-            <input type="hidden" name="_next" value="#success" />
-
             <!-- Section 1: Guest Information -->
             <div class="form-section">
               <h2 class="section-title">
@@ -809,6 +795,13 @@
               </div>
             </div>
 
+            <div class="form-group" id="txnContainer" style="display: none">
+              <label for="transactionId" class="required"
+                >UPI Transaction ID</label
+              >
+              <input type="text" id="transactionId" name="transactionId" />
+            </div>
+
             <!-- Section 6: Terms & Conditions -->
             <div class="form-section">
               <h2 class="section-title">
@@ -1033,6 +1026,20 @@
         });
       });
 
+      paymentMethods.forEach((method) => {
+        method.addEventListener("change", function () {
+          if (this.value === "upi") {
+            qrContainer.style.display = "block";
+            txnContainer.style.display = "block";
+            document.getElementById("transactionId").required = true;
+          } else {
+            qrContainer.style.display = "none";
+            txnContainer.style.display = "none";
+            document.getElementById("transactionId").required = false;
+          }
+        });
+      });
+
       // Form validation before submission
       form.addEventListener("submit", function (e) {
         // Reset all errors
@@ -1116,15 +1123,6 @@
         // Show loading state
         submitBtn.innerHTML = '<span class="loading"></span> Processing...';
         submitBtn.disabled = true;
-
-        // Set FormSubmit redirect URL with success parameter
-        const nextUrl =
-          window.location.origin + window.location.pathname + "?success=true";
-        document.querySelector('input[name="_next"]').value = nextUrl;
-
-        // Generate booking reference and add to form
-        const bookingRef = generateBookingReference();
-        addHiddenField("bookingReference", bookingRef);
 
         // Add timestamp
         addHiddenField("submissionTime", new Date().toISOString());
