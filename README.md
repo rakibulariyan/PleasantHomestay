@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/images/logo.png" width="130" alt="Pleasant Homestay Logo">
+<img src="assets/images/logo/logo.png" width="130" alt="Pleasant Homestay Logo">
 
 <h1><strong>Pleasant Homestay</strong></h1>
 <h3>Your Comfort • Your Escape • Your Home in Nature</h3>

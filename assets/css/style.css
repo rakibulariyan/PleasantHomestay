@@ -2184,8 +2184,8 @@ footer .container {
 }
 
 .footer-logo-bottom img {
-  margin-right: 40px;
-  width: 80px; /* adjust size if needed */
+  margin-right: 70px;
+  width: 100px; /* adjust size if needed */
   height: auto;
   opacity: 0.9; /* optional: looks sleek */
 }
