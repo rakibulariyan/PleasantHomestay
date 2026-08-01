@@ -1045,8 +1045,6 @@
           );
           return false;
         }
-        // Add reCAPTCHA token to form
-        addHiddenField("g-recaptcha-response", recaptchaToken);
         // Show loading state
         submitBtn.innerHTML = '<span class="loading"></span> Processing...';
         submitBtn.disabled = true;
