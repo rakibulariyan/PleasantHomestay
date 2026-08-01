@@ -1004,8 +1004,7 @@
     <script src="assets/js/include.js"></script>
 
     <!-- reCAPTCHA v2 API - Replace YOUR_RECAPTCHA_SITE_KEY with your actual site key -->
-    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
-
+    <script src="https://www.google.com/recaptcha/api.js?onload=initReCaptcha&render=explicit" async defer></script>
     <script>
       // DOM Elements
       const form = document.getElementById("bookingForm");
@@ -1232,10 +1231,6 @@
           form.style.display = "none";
           successMessage.style.display = "block";
         }
-
-        // Initialize reCAPTCHA widget
-        initReCaptcha();
-      });
 
       // Initialize reCAPTCHA
       function initReCaptcha() {
