@@ -1045,6 +1045,10 @@
           );
           return false;
         }
+
+        // Forcefully attach the token with a custom, safe name
+        addHiddenField("recaptchaToken", recaptchaToken);
+        
         // Show loading state
         submitBtn.innerHTML = '<span class="loading"></span> Processing...';
         submitBtn.disabled = true;
