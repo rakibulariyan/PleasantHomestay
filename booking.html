@@ -424,6 +424,8 @@
             method="POST"
             target="_top"
           >
+            <!-- reCAPTCHA Site Key - Replace with your own site key from https://www.google.com/recaptcha/admin -->
+            <input type="hidden" id="recaptchaSiteKey" value="YOUR_RECAPTCHA_SITE_KEY_HERE">
             <!-- Section 1: Guest Information -->
             <div class="form-section">
               <h2 class="section-title">
@@ -932,6 +934,26 @@
               </div>
             </div>
 
+            <!-- Section 9: CAPTCHA Verification -->
+            <div class="form-section">
+              <h2 class="section-title">
+                <i class="fas fa-shield-alt"></i> Security Verification
+              </h2>
+
+              <div class="form-group">
+                <label class="required">Verify you are human</label>
+                <div id="recaptchaContainer" style="margin-top: 15px;">
+                  <!-- reCAPTCHA widget will be rendered here -->
+                </div>
+                <div class="error" id="recaptchaError" style="display: none;">
+                  Please complete the CAPTCHA verification
+                </div>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 10px;">
+                  This helps us prevent automated bot bookings and ensures genuine reservations only.
+                </p>
+              </div>
+            </div>
+
             <!-- Submit and Reset Buttons -->
             <div class="btn-container">
               <button type="submit" class="submit-btn" id="submitBtn">
@@ -981,6 +1003,9 @@
 
     <script src="assets/js/include.js"></script>
 
+    <!-- reCAPTCHA v2 API - Replace YOUR_RECAPTCHA_SITE_KEY with your actual site key -->
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+
     <script>
       // DOM Elements
       const form = document.getElementById("bookingForm");
@@ -993,6 +1018,14 @@
       const successMessage = document.getElementById("successMessage");
       const newBookingBtn = document.getElementById("newBookingBtn");
       const notification = document.getElementById("formsubmit-notification");
+      const recaptchaContainer = document.getElementById("recaptchaContainer");
+      
+      // reCAPTCHA variables
+      let recaptchaWidgetId = null;
+      let recaptchaToken = null;
+      
+      // Get reCAPTCHA site key from hidden input
+      const recaptchaSiteKey = document.getElementById("recaptchaSiteKey").value;
 
       // Get current URL to check for success parameter
       const urlParams = new URLSearchParams(window.location.search);
@@ -1110,6 +1143,12 @@
           }
         }
 
+        // Validate reCAPTCHA
+        if (!recaptchaToken) {
+          showError("recaptchaError", "Please complete the CAPTCHA verification");
+          isValid = false;
+        }
+
         // If validation fails, prevent form submission
         if (!isValid) {
           e.preventDefault();
@@ -1119,6 +1158,9 @@
           );
           return false;
         }
+
+        // Add reCAPTCHA token to form
+        addHiddenField("g-recaptcha-response", recaptchaToken);
 
         // Show loading state
         submitBtn.innerHTML = '<span class="loading"></span> Processing...';
@@ -1147,6 +1189,12 @@
 
         // Reset QR container
         qrContainer.style.display = "none";
+
+        // Reset reCAPTCHA
+        if (typeof grecaptcha !== 'undefined' && recaptchaWidgetId !== null) {
+          grecaptcha.reset(recaptchaWidgetId);
+          recaptchaToken = null;
+        }
 
         // Reset button state
         submitBtn.innerHTML =
@@ -1184,7 +1232,42 @@
           form.style.display = "none";
           successMessage.style.display = "block";
         }
+
+        // Initialize reCAPTCHA widget
+        initReCaptcha();
       });
+
+      // Initialize reCAPTCHA
+      function initReCaptcha() {
+        // Check if site key is configured
+        if (!recaptchaSiteKey || recaptchaSiteKey === "YOUR_RECAPTCHA_SITE_KEY_HERE") {
+          console.warn("reCAPTCHA site key not configured. Please replace YOUR_RECAPTCHA_SITE_KEY_HERE with your actual site key.");
+          recaptchaContainer.innerHTML = '<p style="color: #e74c3c; font-size: 0.9rem;"><strong>Note:</strong> reCAPTCHA is not configured. Please contact the site administrator to enable bot protection.</p>';
+          return;
+        }
+
+        // Render reCAPTCHA widget
+        if (typeof grecaptcha !== 'undefined') {
+          recaptchaWidgetId = grecaptcha.render('recaptchaContainer', {
+            'sitekey': recaptchaSiteKey,
+            'theme': 'light',
+            'type': 'image',
+            'size': 'normal',
+            'callback': function(token) {
+              recaptchaToken = token;
+              // Hide error when CAPTCHA is completed
+              document.getElementById('recaptchaError').style.display = 'none';
+            },
+            'expired-callback': function() {
+              recaptchaToken = null;
+              showError('recaptchaError', 'CAPTCHA expired. Please verify again.');
+            }
+          });
+        } else {
+          console.error('reCAPTCHA API not loaded');
+          recaptchaContainer.innerHTML = '<p style="color: #e74c3c; font-size: 0.9rem;">Unable to load CAPTCHA. Please refresh the page.</p>';
+        }
+      }
 
       // Helper functions
       function showError(errorId, message) {
